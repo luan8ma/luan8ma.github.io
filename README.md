@@ -6,5 +6,5 @@
 数学、计算机科学、商科、哲学、心理学、日记
 
 ## 链接
-<https://luan8ma.github.io/>
+<https://luan8ma.github.io/>  
 [博客园](https://www.cnblogs.com/luanma-2333/)
