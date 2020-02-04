@@ -2,5 +2,5 @@
 use hexo+github page to write a blog
 ## keyword
 mathemetica,computer science, Social Science
-##links
+## links
 <https://luan8ma.github.io/>
