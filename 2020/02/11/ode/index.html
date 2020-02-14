@@ -87,7 +87,7 @@
 <meta property="og:description" content="通过三种方式学习常微分方程的重点笔记。分别是学校，目前内容未定，简称sc;四川大学数院公开课，简称cd;Ordinary Differential Equation ——Arnold，简称an;">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-11T02:37:28.000Z">
-<meta property="article:modified_time" content="2020-02-11T12:36:14.555Z">
+<meta property="article:modified_time" content="2020-02-14T13:00:04.959Z">
 <meta property="article:author" content="luan_ma">
 <meta property="article:tag" content="math">
 <meta name="twitter:card" content="summary">
@@ -310,6 +310,22 @@
 <li>画图分析<br>在方程没有精确解时，通过几何的信息得到解的重要性质，从而一定程度解决实际问题（股市涨跌）。<br>比如等倾线&emsp; $\frac{\mathrm{d}y}{\mathrm{d}x}=f(x,y)=k$&emsp;通过求出不同k值时x,y的关系，得到各点的斜率，从而画出图像，继而判断，</li>
 <li>转化形式<br>维数换阶数，阶数换维数。<br>将规范形式&emsp;$\phi^n(t)=f(t,\phi(t),\phi^{‘}(t),\ldots,\phi^{n-1}(t))$<br>通过&emsp;$x_1=\phi(t),x_2=\phi^{‘}(t),\ldots,x_n=\phi^{n-1}(t)$&emsp;代换<br>得到一阶微分方程组<br>$<br>\begin{cases}<br>\frac{\mathrm{d}x_1}{\mathrm{d}t}=x_2,\\<br>\cdots \cdots,\\<br>\frac{\mathrm{d}x_{n-1}}{\mathrm{d}t}=x_n,\\<br>\frac{\mathrm{d}x_n}{\mathrm{d}t}=f(t,x_1,x_2,\ldots,x_n)<br>\end{cases}<br>$<br>实现维数换阶数，阶数换维数同理，但由于高维矩阵我们有线性代数工具，能够更好分析，所以一般是维数换阶数。</li>
 </ul>
+<p>含有n个参数的函数是一个n阶微分方程的通解，一个n阶微分方程的通解含有n个常数。<br>定理：G为$\mathbf{R}^n$的一个区域，给定一个定义在区间$J$上且包含n个独立参数$C_1,\ldots,C_n$的函数族$\phi(t,C_1,\ldots,C_n)$，其中$(C_1,\ldots,C_n)\in G$，如它们对t是n次可微的，则函数族一定是某个n阶微分方程的通解，反之亦然。<br>证明：$C_1,\ldots,C_n$两两独立，函数$\phi,\frac{\partial\phi}{\partial t},\ldots,\frac{\partial^{n-1}\phi}{\partial t^n}$对参数$C_1,\ldots,C_n$存在连续偏导，且jacobi行列式</p>
+<script type="math/tex; mode=display">det\frac{\partial(\phi,\frac{\partial\phi}{\partial t},\ldots,\frac{\partial^{n-1}\phi}{\partial t^n})}{(C_1,\ldots,C_n)}\ne0</script><p>对所有$(t,C_1,\ldots,C_n)\in J\times G$成立。令$y=\phi$所以根据隐函数存在定理，$C_i=h_i(t,\frac{\mathrm{d}y}{\mathrm{d}t},\ldots,\frac{\mathrm{d}^{n-1}y}{\mathrm{d}t^{n-1}})$,由此得到n阶微分方程$\frac{\mathrm{d}^ny}{\mathrm{d}t^n}=\frac{\partial^n\phi}{\partial t^n}(t,h_1,h_2,\ldots,h_n)$，得证。</p>
+<p>初等积分法<br>变量分离法</p>
+<script type="math/tex; mode=display">
+\frac{\mathrm{d}y}{\mathrm{d}x}=F(x,y)=f(x)g(y)\Rightarrow\frac{\mathrm{d}y}{g(y)}=f(x)\mathrm{d}x\Rightarrow G(y)=F(x)+C</script><p>对于齐次方程使用分离变量法</p>
+<script type="math/tex; mode=display">
+\frac{\mathrm{d}y}{\mathrm{d}x}=a(x)y\Rightarrow\frac{\mathrm{d}y}{y}=a(x)dx\Rightarrow\ln y=\int a(x)\mathrm{d}x\Rightarrow y=Ce^{\int a(x)\mathrm{d}x}</script><p>对于非齐次方程使用分离变量法</p>
+<script type="math/tex; mode=display">
+\frac{\mathrm{d}y}{\mathrm{d}x}=a(x)y+f(x)\\
+\begin{aligned}
+    \text{令 }y&=c(x)e^{\int a(x)\mathrm{d}x}\\
+    y^{'}&=c^{'}(x)e^{\int a(x)\mathrm{d}x}+c(x)e^{\int a(x)\mathrm{d}x}a(x)\\
+    y^{'}&=c^{'}(x)e^{\int a(x)\mathrm{d}x}+ya(x)\\
+\end{aligned}\\
+c^{'}(x)e^{\int a(x)\mathrm{d}x}=f(x)\Rightarrow c^{'}(x)=\frac{f(x)}{e^{\int a(x)\mathrm{d}x}}\Rightarrow c(x)=\int e^{-\int a(x)\mathrm{d}x}f(x)\mathrm{d}x+C\\
+y=Ce^{\int a(x)\mathrm{d}x}+e^{\int a(x)\mathrm{d}x}\int e^{-\int a(x)\mathrm{d}x}f(x)\mathrm{d}x</script><p>e为底的指数函数微分形式不变，因此采用常数变异法尝试求解非齐次方程的部分为其次方程，因此其通解的第一项是齐次方程的通解。</p>
 
       
     </div>
