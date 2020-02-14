@@ -87,7 +87,7 @@
 <meta property="og:description" content="通过四种途径学习实分析的重点笔记。分别是学校老师讲课+书本+作业，简称sc;神必学校实分析，简称sb;Real Analysis——stein，简称st;Real and Complex Analysis——rudin，简称rd;">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-11T02:37:36.000Z">
-<meta property="article:modified_time" content="2020-02-14T13:00:07.946Z">
+<meta property="article:modified_time" content="2020-02-14T13:26:39.311Z">
 <meta property="article:author" content="luan_ma">
 <meta property="article:tag" content="math">
 <meta name="twitter:card" content="summary">
@@ -302,7 +302,7 @@
       
         <p>通过四种途径学习实分析的重点笔记。分别是学校老师讲课+书本+作业，简称sc;<a href="https://www.bilibili.com/video/av53564541" target="_blank" rel="noopener">神必学校实分析</a>，简称sb;Real Analysis——stein，简称st;Real and Complex Analysis——rudin，简称rd;<br><a id="more"></a></p>
 <h1 id="introduction"><a href="#introduction" class="headerlink" title="introduction"></a>introduction</h1><h2 id="sb"><a href="#sb" class="headerlink" title="sb"></a>sb</h2><p>一个函数的微分很容易因小小的变动而变动，而一个函数的积分很稳定。Lebugues积分比Rieman积分有更好的极限性质。</p>
-<h3 id="summability"><a href="#summability" class="headerlink" title="summability"></a>summability</h3><p>now we have a set&emsp;$\{C_\alpha\}\quad\alpha\in I\text{(an index set)}$&emsp;,define $F(I)$ the family of th non-empty finite subset of $I$<br>Def:$\{C_\alpha\}$ is summable if there is a $l\in R$ with the property for any $\epsilon&gt;0$,there is an $A\in F(I)$，if $B\in F(I)$ with $B\supset A \quad\mid\sum_{\alpha\in B}C_\alpha-l\mid&lt;\epsilon$<br>Example:&emsp;$\{C_\alpha\}\quad\alpha\in N$&emsp;is summable $\Longleftrightarrow \sum_{\alpha=1}^\infin C_\alpha$ converges absolutely i.e $\sum_{\alpha=1}^\infin\mid C_\alpha\mid$ converges<br>Theorem:</p>
+<h3 id="summability"><a href="#summability" class="headerlink" title="summability"></a>summability</h3><p>now we have a set&emsp;$\{C_\alpha\}\quad\alpha\in I\text{(an index set)}$&emsp;,define $F(I)$ the family of th non-empty finite subset of $I$<br>Def:$\{C_\alpha\}$ is summable if there is a $l\in R$ with the property for any $\epsilon&gt;0$,there is an $A\in F(I)$，if $B\in F(I)$ with $B\supset A \quad\mid\sum_{\alpha\in B}C_\alpha-l\mid&lt;\epsilon$<br>Example:&emsp;$\{C_\alpha\}\quad\alpha\in N$&emsp;is summable $\Longleftrightarrow \sum_{\alpha=1}^\infty C_\alpha$ converges absolutely i.e $\sum_{\alpha=1}^\infty\mid C_\alpha\mid$ converges<br>Theorem:</p>
 <ol>
 <li>$\{C_{\alpha^{(1)}}\}\alpha^{(1)}\in I\quad\text{and}\quad \{C_{\alpha^{(2)}}\}\alpha^{(2)}\in I$ are summable then$\{AC_{\alpha^{(1)}}+BC_{\alpha^{(2)}}\}$ is summable (may assume $\mid a\mid+\mid b\mid&gt;0$)  </li>
 <li>for $\forall\alpha\in I\quad C_\alpha\ge0$ the $\{C_\alpha\}$ is summable if and only if $\{\sum_{\alpha\in A}C_\alpha:A\in F(I)\}$ is bounded above and $l=sup\{\sum_{\alpha\in A}C_\alpha:A\in F(I)\}$<br>所有数之和不是无穷<br>并不方便根据定义判断可加性，因为需要猜出 $l$ 的值，我们需要找到其他判别方法。 </li>
@@ -325,8 +325,9 @@ a^-=
 \quad
 a=a^+-a^-</script>for any $\epsilon&gt;0$ , let $\epsilon=1$ , there is $A\in F(I)$  such that $B\in F(I)$,$B\cap A=\varnothing\Rightarrow\mid\sum_{\alpha\in B}C_\alpha\mid&lt;1\Rightarrow\mid\sum_{\alpha\in B}C_{\alpha}^+\mid&lt;1$<br>(the set of $C_{\alpha}^+$ define as $B^{‘}$ is the subset of $B$ ,$B^{‘}\cap A=\varnothing$)<br>For any $B\in F(I)$, the $A$ is confirmed,so the $\sum_{\alpha\in A}C_{\alpha}^+$ is a certain positive number.<script type="math/tex; mode=display">
  \sum_{\alpha\in B}C_{\alpha}^+=\sum_{\alpha\in B\cap A}C_{\alpha}^++\sum_{\alpha\in B-A}C_{\alpha}^+<\sum_{\alpha\in B\cap A}C_{\alpha}^++1\le\sum_{\alpha\in A}C_{\alpha}^++1\\
- \Rightarrow\{\sum_{\alpha\in B}C_{\alpha}^+:B\in F(I)\}\le\sum_{\alpha\in A}C_{\alpha}^++1<\infin\overset{\text{Theorem(2)}}{\Longrightarrow}\sum_{\alpha\in I}C_{\alpha}^+\text{ is summable}</script>similarly $\sum_{\alpha\in I}C_{\alpha}^-\text{ is summable}\overset{\text{Theorem(1)}}{\Longrightarrow}\{C_{\alpha}\}=\{C_{\alpha}^+-C_{\alpha}^-\}\text{ is summable}$<br>Double series</li>
+ \Rightarrow\{\sum_{\alpha\in B}C_{\alpha}^+:B\in F(I)\}\le\sum_{\alpha\in A}C_{\alpha}^++1<\infty\overset{\text{Theorem(2)}}{\Longrightarrow}\sum_{\alpha\in I}C_{\alpha}^+\text{ is summable}</script>similarly $\sum_{\alpha\in I}C_{\alpha}^-\text{ is summable}\overset{\text{Theorem(1)}}{\Longrightarrow}\{C_{\alpha}\}=\{C_{\alpha}^+-C_{\alpha}^-\}\text{ is summable}$  </li>
 </ol>
+<p>Double series<br>$ $</p>
 <h2 id="sc"><a href="#sc" class="headerlink" title="sc"></a>sc</h2><p>竖着积分变成横着积分，将所有函数值从$t_1$到$t_2$按顺序加起来$\int_{t_0}^{t_1}f(x)\mathrm{d}t$变成将函数值分类，算出每一类之和再加起来。<br>证明左右等式，可以将条件和结论往中间结论证明等价<br>两个函数相同，但其中一个比另一个定义域更大，也可以说一个函数的部分是另一个函数，g是f在A0上的限制，f为g的扩张。</p>
 
       

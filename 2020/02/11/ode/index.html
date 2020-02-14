@@ -87,7 +87,7 @@
 <meta property="og:description" content="通过三种方式学习常微分方程的重点笔记。分别是学校，目前内容未定，简称sc;四川大学数院公开课，简称cd;Ordinary Differential Equation ——Arnold，简称an;">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-11T02:37:28.000Z">
-<meta property="article:modified_time" content="2020-02-14T13:00:04.959Z">
+<meta property="article:modified_time" content="2020-02-14T13:26:05.790Z">
 <meta property="article:author" content="luan_ma">
 <meta property="article:tag" content="math">
 <meta name="twitter:card" content="summary">
@@ -304,7 +304,7 @@
 <h1 id="introduction"><a href="#introduction" class="headerlink" title="introduction"></a>introduction</h1><h2 id="cd"><a href="#cd" class="headerlink" title="cd"></a>cd</h2><p>可求解的微分方程，求解得到包含常数的通解，即解的集合，根据边界条件得到特解。需要研究的内容：有了这些条件方程的解是否唯一？哪些方程可以求解？</p>
 <p>不可求解的微分方程主要的求解思想</p>
 <ul>
-<li>近似计算<br>构造函数序列逼近。<br>将公式<br>$<br>\begin{cases}<br>\phi^{‘}(t)=f(t,\phi(t))\\<br>\phi(t_0)=x_0\\<br>\end{cases}<br>$<br>转化为&emsp; $\phi(t)=x_0+\int_{t_0}^t f(\tau,\phi(\tau))d\tau$<br>预估初始函数$\phi(x)_0$代入方程右式，得到&emsp;$\phi(x)_1=x_0+\int_{t_0}^t f(\tau,\phi_0(\tau))d\tau$<br>不断跌代，直到&emsp; $\phi(x)_n = \phi(x)_{n-1}=x_0+\int_{t_0}^t f(\tau,\phi_{n-1}(\tau))d\tau$<br>需要研究的内容：是否一定会收敛？收敛的是否唯一？如何快速收敛？</li>
+<li>近似计算<br>构造函数序列逼近。<br>将公式<br>$<br>\begin{cases}<br>\phi’(t)=f(t,\phi(t))\\<br>\phi(t_0)=x_0\\<br>\end{cases}<br>$<br>转化为&emsp; $\phi(t)=x_0+\int_{t_0}^t f(\tau,\phi(\tau))d\tau$<br>预估初始函数$\phi(x)_0$代入方程右式，得到&emsp;$\phi(x)_1=x_0+\int_{t_0}^t f(\tau,\phi_0(\tau))d\tau$<br>不断跌代，直到&emsp; $\phi(x)_n = \phi(x)_{n-1}=x_0+\int_{t_0}^t f(\tau,\phi_{n-1}(\tau))d\tau$<br>需要研究的内容：是否一定会收敛？收敛的是否唯一？如何快速收敛？</li>
 </ul>
 <ul>
 <li>画图分析<br>在方程没有精确解时，通过几何的信息得到解的重要性质，从而一定程度解决实际问题（股市涨跌）。<br>比如等倾线&emsp; $\frac{\mathrm{d}y}{\mathrm{d}x}=f(x,y)=k$&emsp;通过求出不同k值时x,y的关系，得到各点的斜率，从而画出图像，继而判断，</li>
@@ -321,10 +321,10 @@
 \frac{\mathrm{d}y}{\mathrm{d}x}=a(x)y+f(x)\\
 \begin{aligned}
     \text{令 }y&=c(x)e^{\int a(x)\mathrm{d}x}\\
-    y^{'}&=c^{'}(x)e^{\int a(x)\mathrm{d}x}+c(x)e^{\int a(x)\mathrm{d}x}a(x)\\
-    y^{'}&=c^{'}(x)e^{\int a(x)\mathrm{d}x}+ya(x)\\
+    y'&=c'(x)e^{\int a(x)\mathrm{d}x}+c(x)e^{\int a(x)\mathrm{d}x}a(x)\\
+    y'&=c'(x)e^{\int a(x)\mathrm{d}x}+ya(x)\\
 \end{aligned}\\
-c^{'}(x)e^{\int a(x)\mathrm{d}x}=f(x)\Rightarrow c^{'}(x)=\frac{f(x)}{e^{\int a(x)\mathrm{d}x}}\Rightarrow c(x)=\int e^{-\int a(x)\mathrm{d}x}f(x)\mathrm{d}x+C\\
+c'(x)e^{\int a(x)\mathrm{d}x}=f(x)\Rightarrow c'(x)=\frac{f(x)}{e^{\int a(x)\mathrm{d}x}}\Rightarrow c(x)=\int e^{-\int a(x)\mathrm{d}x}f(x)\mathrm{d}x+C\\
 y=Ce^{\int a(x)\mathrm{d}x}+e^{\int a(x)\mathrm{d}x}\int e^{-\int a(x)\mathrm{d}x}f(x)\mathrm{d}x</script><p>e为底的指数函数微分形式不变，因此采用常数变异法尝试求解非齐次方程的部分为其次方程，因此其通解的第一项是齐次方程的通解。</p>
 
       
