@@ -87,7 +87,7 @@
 <meta property="og:description" content="通过三种方式学习常微分方程的重点笔记。分别是学校，目前内容未定，简称sc;四川大学数院公开课，简称cd;Ordinary Differential Equation ——Arnold，简称an;">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-11T02:37:28.000Z">
-<meta property="article:modified_time" content="2020-02-14T13:26:05.790Z">
+<meta property="article:modified_time" content="2020-02-17T05:27:16.943Z">
 <meta property="article:author" content="luan_ma">
 <meta property="article:tag" content="math">
 <meta name="twitter:card" content="summary">
@@ -314,9 +314,9 @@
 <script type="math/tex; mode=display">det\frac{\partial(\phi,\frac{\partial\phi}{\partial t},\ldots,\frac{\partial^{n-1}\phi}{\partial t^n})}{(C_1,\ldots,C_n)}\ne0</script><p>对所有$(t,C_1,\ldots,C_n)\in J\times G$成立。令$y=\phi$所以根据隐函数存在定理，$C_i=h_i(t,\frac{\mathrm{d}y}{\mathrm{d}t},\ldots,\frac{\mathrm{d}^{n-1}y}{\mathrm{d}t^{n-1}})$,由此得到n阶微分方程$\frac{\mathrm{d}^ny}{\mathrm{d}t^n}=\frac{\partial^n\phi}{\partial t^n}(t,h_1,h_2,\ldots,h_n)$，得证。</p>
 <p>初等积分法<br>变量分离法</p>
 <script type="math/tex; mode=display">
-\frac{\mathrm{d}y}{\mathrm{d}x}=F(x,y)=f(x)g(y)\Rightarrow\frac{\mathrm{d}y}{g(y)}=f(x)\mathrm{d}x\Rightarrow G(y)=F(x)+C</script><p>对于齐次方程使用分离变量法</p>
+\frac{\mathrm{d}y}{\mathrm{d}x}=F(x,y)=f(x)g(y)\Rightarrow\frac{\mathrm{d}y}{g(y)}=f(x)\mathrm{d}x\Rightarrow G(y)=F(x)+C</script><p>线性齐次方程</p>
 <script type="math/tex; mode=display">
-\frac{\mathrm{d}y}{\mathrm{d}x}=a(x)y\Rightarrow\frac{\mathrm{d}y}{y}=a(x)dx\Rightarrow\ln y=\int a(x)\mathrm{d}x\Rightarrow y=Ce^{\int a(x)\mathrm{d}x}</script><p>对于非齐次方程使用分离变量法</p>
+\frac{\mathrm{d}y}{\mathrm{d}x}=a(x)y\Rightarrow\frac{\mathrm{d}y}{y}=a(x)dx\Rightarrow\ln y=\int a(x)\mathrm{d}x\Rightarrow y=Ce^{\int a(x)\mathrm{d}x}\\</script><p>线性齐次方程的一般形式</p>
 <script type="math/tex; mode=display">
 \frac{\mathrm{d}y}{\mathrm{d}x}=a(x)y+f(x)\\
 \begin{aligned}
@@ -325,7 +325,31 @@
     y'&=c'(x)e^{\int a(x)\mathrm{d}x}+ya(x)\\
 \end{aligned}\\
 c'(x)e^{\int a(x)\mathrm{d}x}=f(x)\Rightarrow c'(x)=\frac{f(x)}{e^{\int a(x)\mathrm{d}x}}\Rightarrow c(x)=\int e^{-\int a(x)\mathrm{d}x}f(x)\mathrm{d}x+C\\
-y=Ce^{\int a(x)\mathrm{d}x}+e^{\int a(x)\mathrm{d}x}\int e^{-\int a(x)\mathrm{d}x}f(x)\mathrm{d}x</script><p>e为底的指数函数微分形式不变，因此采用常数变异法尝试求解非齐次方程的部分为其次方程，因此其通解的第一项是齐次方程的通解。</p>
+\begin{aligned}
+
+y&=Ce^{\int a(x)\mathrm{d}x}+e^{\int a(x)\mathrm{d}x}\int e^{-\int a(x)\mathrm{d}x}f(x)\mathrm{d}x\\
+\text{代入初始边界条件 }y(x_0)&=y_0\\
+y&=y_0e^{\int_{x_0}^x a(x)\mathrm{d}x}+e^{\int_{x_0}^x a(x)\mathrm{d}x}\int_{x_0}^x e^{-\int_s^x a(x)\mathrm{d}x}f(s)\mathrm{d}s
+\end{aligned}</script><p>e为底的指数函数微分形式不变，因此采用常数变异法尝试求解非齐次方程的部分为其次方程，因此其通解的第一项是齐次方程的通解。</p>
+<p>恰当形式<br>Bernoulli 形式<br>
+$$
+\begin{aligned}
+    \frac{\mathrm{d}y}{\mathrm{d}x}&=a(x)y+f(x)y^\alpha\qquad\alpha\ne 0,1\quad y\ne 0\\
+\frac{\mathrm{d}y}{y^\alpha}\frac{1}{\mathrm{d}x}&=a(x)y^{1-\alpha}+f(x)\\
+    \frac{1}{1-\alpha}\frac{\mathrm{d}y^{1-\alpha}}{\mathrm{d}x}&=a(x)y^{1-\alpha}+f(x) \text{ 令 }z=y^{1-\alpha}\\
+    z&=Ce^{\int a(x)\mathrm{d}x}+e^{\int a(x)\mathrm{d}x}\int e^{-\int a(x)\mathrm{d}x}f(x)\mathrm{d}x\\
+    y&=\sqrt[1-\alpha]{Ce^{\int a(x)\mathrm{d}x}+e^{\int a(x)\mathrm{d}x}\int e^{-\int a(x)\mathrm{d}x}f(x)\mathrm{d}x}\\
+    y&=\sqrt[1-\alpha]{{y_0}^{1-\alpha}e^{\int_{x_0}^x a(x)\mathrm{d}x}+e^{\int_{x_0}^x a(x)\mathrm{d}x}\int_{x_0}^x e^{-\int_s^x a(x)\mathrm{d}x}f(s)\mathrm{d}s}
+\end{aligned}
+$$
+<br>0次齐次方程<br>齐次方程的定义：满足$f(\lambda x,\lambda y)=\lambda^\alpha f(x,y)$为$\alpha$次齐次方程。</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+    \frac{\mathrm{d}y}{\mathrm{d}x}&=F(x,y)\qquad F(x,y)\text{为0次齐次方程}\\
+    \frac{\mathrm{d}y}{\mathrm{d}x}&=x^\alpha F(1,\frac{y}{x})\qquad\alpha=0\\  
+\end{aligned}\\
+    \text{令 }u=\frac{y}{x} \text{ 故 }y=ux\quad\frac{\mathrm{d}y}{\mathrm{d}x}=\frac{\mathrm{d}u}{\mathrm{d}x}x+u\\
+    \frac{\mathrm{d}u}{\mathrm{d}x}=\frac{F(1,u)-u}{x}</script><p>之后使用变量分离法再代入$u=\frac{y}{x}$即可得到方程的解<br>对于与<br>$\frac{ax+by}{a_1x+b_1y}$类似的$\frac{ax+by+c}{a_1x+b_1y+c_1}$非0次齐次方程可以通过变量代换的方式转化。对于$ax+by$与$a_1x+b_1y$交点在$(0,0)$处，而${ax+by+c}$与${a_1x+b_1y+c_!}$交点在$(x_0,y_0)$处（若无交点则方程无意义）,令$\begin{cases}u=x-x_0\\v=y-y_0\end{cases}\quad\frac{ax+by+c}{a_1x+b_1y+c_1}=\frac{au+bv}{a_1u+b_1v}$ 得到0次齐次方程（寻找Geometric sense的idea）</p>
 
       
     </div>
