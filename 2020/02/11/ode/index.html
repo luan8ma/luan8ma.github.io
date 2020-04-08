@@ -87,7 +87,7 @@
 <meta property="og:description" content="通过三种方式学习常微分方程的重点笔记。分别是学校，目前内容未定，简称sc;四川大学数院公开课，简称cd;Ordinary Differential Equation ——Arnold，简称an;">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-02-11T02:37:28.000Z">
-<meta property="article:modified_time" content="2020-02-19T00:43:41.861Z">
+<meta property="article:modified_time" content="2020-04-02T02:37:39.941Z">
 <meta property="article:author" content="luan_ma">
 <meta property="article:tag" content="math">
 <meta name="twitter:card" content="summary">
@@ -317,19 +317,21 @@
 \frac{\mathrm{d}y}{\mathrm{d}x}=a(x)y\Rightarrow\frac{\mathrm{d}y}{y}=a(x)dx\Rightarrow\ln y=\int a(x)\mathrm{d}x\Rightarrow y=Ce^{\int a(x)\mathrm{d}x}\\</script><p>线性齐次方程的一般形式</p>
 <script type="math/tex; mode=display">
 \frac{\mathrm{d}y}{\mathrm{d}x}=a(x)y+f(x)\\
+\phantom{a}\\
 \begin{aligned}
     \text{令 }y&=c(x)e^{\int a(x)\mathrm{d}x}\\
     y'&=c'(x)e^{\int a(x)\mathrm{d}x}+c(x)e^{\int a(x)\mathrm{d}x}a(x)\\
     y'&=c'(x)e^{\int a(x)\mathrm{d}x}+ya(x)\\
 \end{aligned}\\
+\phantom{a}\\
 c'(x)e^{\int a(x)\mathrm{d}x}=f(x)\Rightarrow c'(x)=\frac{f(x)}{e^{\int a(x)\mathrm{d}x}}\Rightarrow c(x)=\int e^{-\int a(x)\mathrm{d}x}f(x)\mathrm{d}x+C\\
+\phantom{a}\\
 \begin{aligned}
-
 y&=Ce^{\int a(x)\mathrm{d}x}+e^{\int a(x)\mathrm{d}x}\int e^{-\int a(x)\mathrm{d}x}f(x)\mathrm{d}x\\
 \text{代入初始边界条件 }y(x_0)&=y_0\\
 y&=y_0e^{\int_{x_0}^x a(x)\mathrm{d}x}+e^{\int_{x_0}^x a(x)\mathrm{d}x}\int_{x_0}^x e^{-\int_s^x a(x)\mathrm{d}x}f(s)\mathrm{d}s
 \end{aligned}</script><p>e为底的指数函数微分形式不变，因此采用常数变异法尝试求解非齐次方程的部分为其次方程，因此其通解的第一项是齐次方程的通解。</p>
-<p>恰当形式<br>Bernoulli 形式<br>
+<p>Bernoulli 形式<br>
 $$
 \begin{aligned}
     \frac{\mathrm{d}y}{\mathrm{d}x}&=a(x)y+f(x)y^\alpha\qquad\alpha\ne 0,1\quad y\ne 0\\
@@ -347,20 +349,149 @@ $$
     \frac{\mathrm{d}y}{\mathrm{d}x}&=x^\alpha F(1,\frac{y}{x})\qquad\alpha=0\\  
 \end{aligned}\\
     \text{令 }u=\frac{y}{x} \text{ 故 }y=ux\quad\frac{\mathrm{d}y}{\mathrm{d}x}=\frac{\mathrm{d}u}{\mathrm{d}x}x+u\\
-    \frac{\mathrm{d}u}{\mathrm{d}x}=\frac{F(1,u)-u}{x}</script><p>之后使用变量分离法再代入$u=\frac{y}{x}$即可得到方程的解<br>对于与<br>$\frac{ax+by}{a_1x+b_1y}$类似的$\frac{ax+by+c}{a_1x+b_1y+c_1}$非0次齐次方程可以通过变量代换的方式转化。对于$ax+by$与$a_1x+b_1y$交点在$(0,0)$处，而${ax+by+c}$与${a_1x+b_1y+c_!}$交点在$(x_0,y_0)$处（若无交点则方程无意义）,令$\begin{cases}u=x-x_0\\v=y-y_0\end{cases}\quad\frac{ax+by+c}{a_1x+b_1y+c_1}=\frac{au+bv}{a_1u+b_1v}$ 得到0次齐次方程（寻找Geometric sense 的 idea）<br>维数换阶数+变量分离法</p>
+    \frac{\mathrm{d}u}{\mathrm{d}x}=\frac{F(1,u)-u}{x}</script><p>之后使用变量分离法再代入$u=\frac{y}{x}$即可得到方程的解<br>对于与<br>$\frac{ax+by}{a_1x+b_1y}$ 类似的 $\frac{ax+by+c}{a_1x+b_1y+c_1}$ 非0次齐次方程可以通过变量代换的方式转化。对于 $ax+by$ 与 $a_1x+b_1y$ 交点在 $(0,0)$ 处，而 ${ax+by+c}$ 与 ${a_1x+b_1y+c_1}$ 交点在 $(x_0,y_0)$ 处（若无交点则方程无意义）,令 $\begin{cases}u=x-x_0\\v=y-y_0\end{cases}\quad\frac{ax+by+c}{a_1x+b_1y+c_1}=\frac{au+bv}{a_1u+b_1v}$ 得到0次齐次方程（寻找Geometric sense 的 idea）<br>维数换阶数+变量分离法</p>
 <script type="math/tex; mode=display">
-\frac{\mathrm{d}^2x}{\mathrm{d}t^2}=g(x)\qquad\text{令 }y=\frac{\mathrm{d}x}{\mathrm{d}t}\\
+\begin{aligned}
+\frac{\mathrm{d}^2x}{\mathrm{d}t^2}=g(x)\qquad\text{令 }y&=\frac{\mathrm{d}x}{\mathrm{d}t}\\
 \begin{cases}
     \frac{\mathrm{d}x}{\mathrm{d}t}=y\\
     \frac{\mathrm{d}y}{\mathrm{d}t}=g(x)
-\end{cases}\qquad\frac{\mathrm{d}y}{\mathrm{d}x}=\frac{g(x)}{y}\\
+\end{cases}
+\qquad\frac{\mathrm{d}y}{\mathrm{d}x}&=\frac{g(x)}{y}    
+\end{aligned}\\
+\phantom{a}\\
 \begin{aligned}
 y\mathrm{d}y&=g(x)\mathrm{d}x\\
     \frac{1}{2}y^2&=G(x)+C\\
     y&=\pm\sqrt{2(C(x)+C)} \quad\text{代入 }\frac{\mathrm{d}x}{\mathrm{d}t}=y\\
     \mathrm{d}t&=\frac{1}{\pm\sqrt{2(C(x)+C)}}\mathrm{d}x
 \end{aligned}\\
-\text{得到 }t=T(x)\quad x=T^{-1}(t)</script><h3 id="恰当形式"><a href="#恰当形式" class="headerlink" title="恰当形式"></a>恰当形式</h3>
+\phantom{a}\\
+\text{得到 }t=T(x)\quad x=T^{-1}(t)</script><h3 id="恰当形式"><a href="#恰当形式" class="headerlink" title="恰当形式"></a>恰当形式</h3><script type="math/tex; mode=display">
+\frac{\mathrm{d}y}{\mathrm{d}x}=F(x,y)\Rightarrow P(x.y)\mathrm{d}x+Q(x,y)\mathrm{d}y=0</script><p>全微分的思想（详见数学分析）</p>
+<script type="math/tex; mode=display">
+\mathrm{d}U(x,y)=\frac{\partial U}{\partial x}\mathrm{d}x+\frac{\partial U}{\partial y}\mathrm{d}y=P(x,y)\mathrm{d}x+Q(x,y)\mathrm{d}y\\
+U(x,y)=\int_{x_0}^xP(x,y)\mathrm{d}x+\int_{y_0}^yQ(x_0,y)\mathrm{d}y=\int_{x_0}^xP(x,y_0)\mathrm{d}x+\int_{y_0}^yQ(x,y)\mathrm{d}y\quad (x_0=y_0=0\text{ 时方便计算})</script><p>$U$为首次积分，具有守恒性。动力系统若具有首次积分，则称其具有可积性。若方程不恰当，寻找积分因子。</p>
+<script type="math/tex; mode=display">
+\mu(x,y)\left(M(x,y)\mathrm{d}x+N(x,y)\mathrm{d}y\right)=0\quad\text{ where }\mu(x,y)\neq0</script><p>使得</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\frac{\partial(\mu M)}{\partial y}&=\frac{\partial(\mu N)}{\partial x}\\
+N\frac{\partial\mu}{\partial x}-M\frac{\partial \mu}{\partial y}&=\left(\frac{\partial M}{\partial y}-\frac{\partial N}{\partial x}\right)\mu    
+\end{aligned}</script><p>恰当判别式：</p>
+<script type="math/tex; mode=display">
+E(x,y)=\frac{\partial M}{\partial y}-\frac{\partial N}{\partial x}</script><p>若 $\mu$ 仅与 $x$ 有关：</p>
+<script type="math/tex; mode=display">
+\begin{alignedat}
+N\frac{\partial\mu}{\partial x}&=E(x,y)\mu\\
+\frac{\mathrm{d}\mu}{\mu}&=\frac{E}{N}\mathrm{d}x    
+\end{alignedat}</script><p>若 $E/N$ 与 $y$ 无关，符合假设，故可求出：</p>
+<script type="math/tex; mode=display">
+\mu(x)=\exp\left({\int\frac{E}{N}\mathrm{d}x}\right)</script><p>对于仅与 $y$ 有关，同理：</p>
+<script type="math/tex; mode=display">
+\mu(y)=\exp\left({\int\frac{E}{M}\mathrm{d}y}\right)</script><p>利用积分因子重新推导积分</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+
+\frac{\mathrm{d}y}{\mathrm{d}x}=a(x)y+f(x)\\
+(a(x)y+f(x))\mathrm{d}x-\mathrm{d}y=0\\
+E(x,y)=\frac{\partial M}{\partial y}-\frac{\partial N}{\partial x}=a(x)\\
+\frac{E}{N}=-a(x)\qquad\mu(x)=e^{\int -a(x)\mathrm{d}x}\\
+\end{aligned}\\
+\phantom{a}\\
+\begin{aligned}
+    \text{左式}&=e^{\int -a(x)\mathrm{d}x}a(x)y\mathrm{d}x+e^{\int -a(x)\mathrm{d}x}f(x)\mathrm{d}x-e^{\int -a(x)\mathrm{d}x}\mathrm{d}y \\
+    &=\mathrm{d}\left\{\int e^{\int -a(x)\mathrm{d}x}f(x)\mathrm{d}x\right\}-\mathrm{d}\left\{e^{\int -a(x)\mathrm{d}x}y\right\}\\
+    C&=\int e^{\int -a(x)\mathrm{d}x}f(x)\mathrm{d}x-e^{\int -a(x)\mathrm{d}x}y\\
+    y&=Ce^{\int a(x)\mathrm{d}x}+e^{\int a(x)\mathrm{d}x}\int e^{\int -a(x)\mathrm{d}x}f(x)\mathrm{d}x
+\end{aligned}</script><p>定理，若找到一个积分因子，即可找到无穷个积分因子。$\mu$ 为积分因子，$U$ 为首积分，则$\mu h(U)$，对于$\forall h\neq0$且可微，皆为积分因子。证明：</p>
+<script type="math/tex; mode=display">
+h(U)\mu M\mathrm{d}x+h(U)\mu \mathrm{d}y=h(U)\mathrm{d}U
+=H(U)</script><p>假设可以分为两组找到积分因子，分别为 $\mu_1,\mu_2$，找到 $h_1,h_2$，使得 $\mu_1h_1(U_1)=\mu_2h_2(U_2)$</p>
+<h3 id="隐式方程"><a href="#隐式方程" class="headerlink" title="隐式方程"></a>隐式方程</h3><p>形如：</p>
+<script type="math/tex; mode=display">
+F(x,y,\frac{\mathrm{d}y}{\mathrm{d}x})=0</script><p>隐函数定理只能判断点附近存在隐函数，不适合运用。我们选择用参数化的方法，将原方程视作三维空间的曲面方程。</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+x=A(s,t)&\quad y=B(s,t)\quad \frac{\mathrm{d}y}{\mathrm{d}x}=C(s,t)\\
+\mathrm{d}x&=\frac{\partial A}{\partial s}\mathrm{d}s+\frac{\partial A}{\partial t}\mathrm{d}t\\
+\mathrm{d}y&=\frac{\partial B}{\partial s}\mathrm{d}s+\frac{\partial B}{\partial t}\mathrm{d}t\\
+\mathrm{d}y&=C\mathrm{d}x    
+\end{aligned}\\
+\phantom{a}\\
+\begin{aligned}
+\frac{\partial B}{\partial s}\mathrm{d}s+\frac{\partial B}{\partial t}\mathrm{d}t&=C\left\{\frac{\partial A}{\partial s}\mathrm{d}s+\frac{\partial A}{\partial t}\mathrm{d}t\right\}\\
+\left\{\frac{\partial B}{\partial s}-C\frac{\partial A}{\partial s} \right\}\mathrm{d}s&+\left\{\frac{\partial B}{\partial t}-C\frac{\partial A}{\partial t}\right\}\mathrm{d}t=0\\    
+\end{aligned}\\
+\text{得到 }s=w(t,c)\text{ 代入 }
+\begin{cases}
+x=A(w(t,c),t)\\
+y=B(w(t,c),t)   
+\end{cases}</script><p>特例，形如：</p>
+<script type="math/tex; mode=display">
+y=f(x,\frac{\mathrm{d}y}{\mathrm{d}x}) \quad x=f(y,\frac{\mathrm{d}y}{\mathrm{d}x})\quad F(x,\frac{\mathrm{d}y}{\mathrm{d}x})=0\quad F(y,\frac{\mathrm{d}y}{\mathrm{d}x})=0</script><p>同样也是参数化，只是选择参数个数不同。<br>可以使用微分法来求解：$y=f(x,\frac{\mathrm{d}y}{\mathrm{d}x})$  </p>
+<script type="math/tex; mode=display">\begin{aligned}
+\frac{\mathrm{d}y}{\mathrm{d}x}&=\frac{\partial f}{\partial x}+\frac{\partial f}{\partial p}\frac{\partial p}{\partial x}\\
+     \frac{\mathrm{d}p}{\mathrm{d}x}&=\frac{p-\frac{\partial f}{\partial x}}{\frac{\partial p}{\partial x}}\\
+     p=S(x)\quad y&=\int S(x)\mathrm{d}x
+\end{aligned}</script><p>同样对于 $x=f(y,p$</p>
+<script type="math/tex; mode=display">\begin{aligned}
+1&=\frac{\partial f}{\partial y}\frac{\partial y}{\partial x}+\frac{\partial f}{\partial p}\frac{\partial p}{\partial x}
+&\qquad\frac{\mathrm{d}p}{\mathrm{d}x}=\frac{\partial p}{\partial y}\frac{\mathrm{d} y}{\mathrm{d} x}\\
+1&=\frac{\partial f}{\partial y}p+\frac{\partial f}{\partial p}\frac{\partial p}{\partial y}p
+&\qquad\frac{\mathrm{d}p}{\mathrm{d}y}=\frac{1-\frac{\partial f}{\partial y}p}{\frac{\partial f}{\partial p}p}\\
+     p&=S(y)&\qquad x=\int \frac{\mathrm{d}x}{S(x)}
+\end{aligned}</script><p>对于$F(x,\frac{\mathrm{d}y}{\mathrm{d}x})=0$</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+
+&\begin{cases}
+x=\phi(s)\\
+p=\frac{\mathrm{d}y}{\mathrm{d}x}=\Phi(s)    
+\end{cases}\\
+y&=\int p\mathrm{d}x=\int \Phi(s)\phi'(s)\mathrm{d}s=\Theta(s)\\
+&\begin{cases}
+x=\phi(s)\\
+y=\Theta(s)
+\end{cases}
+
+\end{aligned}</script><p>同样对于$F(y,\frac{\mathrm{d}y}{\mathrm{d}x})=0$</p>
+<script type="math/tex; mode=display">
+\begin{aligned}  
+&\begin{cases}
+y=\phi(s)\\
+p=\frac{\mathrm{d}y}{\mathrm{d}x}=\Phi(s)    
+\end{cases}\\
+x&=\int \frac{\mathrm{d}y}{p}=\int\frac{\phi'(s)\mathrm{d}s}{\Phi(s)}=\Theta(s)\\
+&\begin{cases}
+y=\phi(s)\\
+x=\Theta(s)
+\end{cases}\\
+\end{aligned}</script><h3 id="奇解"><a href="#奇解" class="headerlink" title="奇解"></a>奇解</h3><p>对于通解$\{r_c\}$，特解$r_<em>$与$\{r_c\}$相交且任意通解在$R^2$空间中与特解相切，则$r_</em>$为包络面。若特解是包络面。则称该特解为导解，对于导解曲线上任意一点，存在一个解属于通解，该解与导解在此点相切。<br>C判别曲线法：</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+\Phi(x,y,C)=0\\
+\Phi'_C(x,y,C)=0    
+\end{cases}\quad\text{ 得到 }\Omega(x,y)=0</script><p>P $(\mathrm{d}y/\mathrm{d}x)$ 判别曲线法</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+\Phi(x,y,P)=0\\
+\Phi'_P(x,y,P)=0    
+\end{cases}\quad\text{ 得到 }\Omega(x,y)=0</script><p>Clairaut方程恒有奇解</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+y&=xp+f(p)\\
+\frac{\mathrm{d}y}{\mathrm{d}x}&=p+x\frac{\mathrm{d}p}{\mathrm{d}x}+f'(p)\frac{\mathrm{d}p}{\mathrm{d}x}\\
+0&=\frac{\mathrm{d}p}{\mathrm{d}x}(x+f'(p))\\
+\frac{\mathrm{d}p}{\mathrm{d}x}=0\quad&\text{或}\quad x+f'(p)=0\\
+\text{若 }p=C\quad&\begin{cases}x=-f'(c)\\y=Cx+f(C)\end{cases}\\
+\text{若 }x+f'(p)=0\quad&\begin{cases}x=-f'(p)\\y=-pf'(p)+f(p)\end{cases}\\
+\end{aligned}</script><h3 id="高阶微分方程"><a href="#高阶微分方程" class="headerlink" title="高阶微分方程"></a>高阶微分方程</h3><script type="math/tex; mode=display">
+F(x,y,\frac{\mathrm{d}y}{\mathrm{d}x},\ldots,\frac{\mathrm{d}^ny}{\mathrm{d}x^n})=0</script><p>若不含$y$,能够通过换元的方式降阶</p>
+<script type="math/tex; mode=display">
+p=\frac{\mathrm{d}y}{\mathrm{d}x}\qquad F(x,p,\frac{\mathrm{d}p}{\mathrm{d}x},\ldots,\frac{\mathrm{d}^{n-1}p}{\mathrm{d}x^{n-1}})=0</script><p>若不含$x$，方程为自洽系统。$x$改变，</p>
+<script type="math/tex; mode=display">
+F(y,\frac{\mathrm{d}y}{\mathrm{d}x},\ldots,\frac{\mathrm{d}^ny}{\mathrm{d}x^n})=0</script>
       
     </div>
     
@@ -479,7 +610,7 @@ y\mathrm{d}y&=g(x)\mathrm{d}x\\
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -525,7 +656,7 @@ y\mathrm{d}y&=g(x)\mathrm{d}x\\
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#cd"><span class="nav-number">1.</span> <span class="nav-text">cd</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#不可求解的微分方程主要的求解思想"><span class="nav-number">1.1.</span> <span class="nav-text">不可求解的微分方程主要的求解思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初等积分法"><span class="nav-number">1.2.</span> <span class="nav-text">初等积分法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#变量分离法"><span class="nav-number">1.2.1.</span> <span class="nav-text">变量分离法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#恰当形式"><span class="nav-number">1.2.2.</span> <span class="nav-text">恰当形式</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#cd"><span class="nav-number">1.</span> <span class="nav-text">cd</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#不可求解的微分方程主要的求解思想"><span class="nav-number">1.1.</span> <span class="nav-text">不可求解的微分方程主要的求解思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初等积分法"><span class="nav-number">1.2.</span> <span class="nav-text">初等积分法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#变量分离法"><span class="nav-number">1.2.1.</span> <span class="nav-text">变量分离法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#恰当形式"><span class="nav-number">1.2.2.</span> <span class="nav-text">恰当形式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#隐式方程"><span class="nav-number">1.2.3.</span> <span class="nav-text">隐式方程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#奇解"><span class="nav-number">1.2.4.</span> <span class="nav-text">奇解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高阶微分方程"><span class="nav-number">1.2.5.</span> <span class="nav-text">高阶微分方程</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
